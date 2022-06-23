@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collezione xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="icarracci">
+<!-- xml:id fa parte della sintassi xml -->
+  <opera xml:id="ilmangiafagioli">
+     <dc:title>Il mangiafagioli</dc:title>
+     <dc:creator>Annibale Carracci</dc:creator>
+     <dc:date>1584-1585</dc:date>
+     <dc:type>ritratto</dc:type>
+     <dc:format>57x68 cm</dc:format>
+     <dc:format>olio su tela</dc:format>
+     <dc:coverage>Galleria di Palazzo Colonna, Roma</dc:coverage>
+     <dc:subject>pittura bolognese</dc:subject>
+     <dc:subject>pittori italiani del '500</dc:subject>
+     <dc:subject>realismo italiano</dc:subject>
+     <dc:description xml:lang="it">ll Mangiafagioli è un dipinto di Annibale Carracci realizzato tra il 1584 e il 1585. Esso misura 57x68 cm ed è custodito nella galleria di Palazzo Colonna, Roma.</dc:description>
+     <dc:relation>Madonna dei Bargellini</dc:relation>
+     <dc:relation>Triplo ritratto</dc:relation>
+  </opera>
+</collezione>
+    
