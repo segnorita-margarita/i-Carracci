@@ -28,6 +28,7 @@ footer {
 .link {color: #FFFFFF; text-decoration: none;}
 .link:hover {color: #FFFFFF; text-decoration: underline;}
 
+
 .img-zoom-container {
   position: relative;
 }
@@ -95,4 +96,19 @@ div.desc {
   margin: 10px;
   color: white;
   transform: rotateY(180deg);
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #FFA500;
+  float: left;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
 }
