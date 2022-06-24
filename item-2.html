@@ -11,6 +11,63 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script>
+      function imageZoom(imgID, resultID) {
+      var img, lens, result, cx, cy;
+      img = document.getElementById(imgID);
+      result = document.getElementById(resultID);
+      /*create lens:*/
+      lens = document.createElement("DIV");
+      lens.setAttribute("class", "img-zoom-lens");
+      /*insert lens:*/
+      img.parentElement.insertBefore(lens, img);
+      /*calculate the ratio between result DIV and lens:*/
+      cx = result.offsetWidth / lens.offsetWidth;
+      cy = result.offsetHeight / lens.offsetHeight;
+      /*set background properties for the result DIV:*/
+      result.style.backgroundImage = "url('" + img.src + "')";
+      result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+      /*execute a function when someone moves the cursor over the image, or the lens:*/
+      lens.addEventListener("mousemove", moveLens);
+      img.addEventListener("mousemove", moveLens);
+      /*and also for touch screens:*/
+      lens.addEventListener("touchmove", moveLens);
+      img.addEventListener("touchmove", moveLens);
+      function moveLens(e) {
+      var pos, x, y;
+      /*prevent any other actions that may occur when moving over the image:*/
+      e.preventDefault();
+      /*get the cursor's x and y positions:*/
+     pos = getCursorPos(e);
+     /*calculate the position of the lens:*/
+     x = pos.x - (lens.offsetWidth / 2);
+     y = pos.y - (lens.offsetHeight / 2);
+     /*prevent the lens from being positioned outside the image:*/
+     if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+     if (x < 0) {x = 0;}
+     if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+     if (y < 0) {y = 0;}
+     /*set the position of the lens:*/
+     lens.style.left = x + "px";
+     lens.style.top = y + "px";
+     /*display what the lens "sees":*/
+     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+     }
+     function getCursorPos(e) {
+     var a, x = 0, y = 0;
+     e = e || window.event;
+     /*get the x and y positions of the image:*/
+     a = img.getBoundingClientRect();
+     /*calculate the cursor's x and y coordinates, relative to the image:*/
+     x = e.pageX - a.left;
+     y = e.pageY - a.top;
+     /*consider any page scrolling:*/
+     x = x - window.pageXOffset;
+     y = y - window.pageYOffset;
+     return {x : x, y : y};
+     }
+     }
+     </script>
     </head>
 
     <body>
@@ -57,22 +114,25 @@
 
         <section>
         <br>
-        <div class="container mt-5 mb-3">
+        <div class="container-fluid">
+         <div class="container mt-5 mb-3">
            <div class="row">
                <div class="col-12 m-3 text-center">
-                  <h3>La Madonna dei Bargellini</h3>
+                  <h3><b>La Madonna dei Bargellini</b></h3>
                </div>
            </div> 
            <div class="row">
               <div class="col-2 mt-1 mb-1">
-                  <button type="button" class="btn btn-outline-warning mt-3 mb-4" disabled> <a href="index.html" class="text-warning">Home</a><a href="Carracci-opere.html" class="text-warning"> > Opere</a> > Lista opere > La Madonna dei Bargellini</button>
+                  <button type="button" class="btn btn-outline-warning mt-3 mb-4" disabled> <a href="index.html" class="text-warning">Home</a> <a href="Carracci-opere.html" class="text-warning"> > Lista opere</a> > La Madonna dei Bargellini</button>
                   <button type="button" class="btn btn-outline-warning mt-3">Licenza</button><br>
                   <button type="button" class="btn btn-outline-warning mt-3">Immagine</button><br>
                   <button type="button" class="btn btn-outline-warning mt-3">Condividi</button><br>
                   <button type="button" class="btn btn-outline-warning mt-3">XML/DC</button>
              </div>
              <div class="col-7 mt-1 mb-1">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Carracci_Ludovico_Madonna_Bargellini.jpg" alt="Responsive image" style="width:300px;height:700p"><br>
+                <div class="img-zoom-container">
+                  <img id="myimage" src="https://upload.wikimedia.org/wikipedia/commons/6/68/Carracci_Ludovico_Madonna_Bargellini.jpg" alt="Responsive image" style="width:500px;height:900p"><br>
+                </div>
                   <br><br>
                   <p><i>Introduzione:</i> La Madonna dei Bargellini è la prima opera firmata e datata di Ludovico Carracci, che egli eseguì per conto della famiglia bolognese dei Bargellini. La pala, che originariamente si trovava sull’altare della cappella Boncompagni nella chiesa dei santi Filippo e Giacomo, in Via delle Lame, ritrae la Madonna, Gesù e i santi Francesco Domenico e Maddalena.</p>
                   <br><br>
@@ -132,42 +192,57 @@
                    <button type="button" class="btn btn-success">Pittura</button>
                    <button type="button" class="btn btn-danger">Ritratto</button>
                  </p>
-          </div>    
-       </div>
+             </div>    
+             <div class="col-3 mt-1 mb-1">
+               <h5>Guarda più da vicino</h5>
+               <div id="myresult" class="img-zoom-result">
+               </div>
+               <hr>
+               <h5>Ti potrebbe interessare anche</h5>
+               <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Agostino_Carracci_-_Hairy_Harry%2C_Mad_Peter_and_Tiny_Amon.jpg" alt="Responsive image" style="width:300px;height:200p"><br><br>
+               <p>Agostino Carracci, Il Triplo ritratto</p>            
+               <button type="button" class="btn btn-outline-warning mt-3"><a href="item-3.html">Vai alla pagina</a></button><br>
+             </div>
+           </div>
+        </div>
        </section>
 
        <footer>
           <br>
           <div class="container-fluid bg-warning text-white">
               <div class="row">
-                  <div class="col-md-4" style="text-align: center;">
+                  <div class="col-md-4">
                      <h3>Maggiori informazioni</h3>
                      <br>
                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-success"><a href="chi-siamo.html">Chi siamo</button></a>
+                        <button type="button" class="btn btn-success"><a href="chi-siamo.html" class="link">Chi siamo</button></a>
                         <button type="button" class="btn btn-success">Iscriviti alla newsletter</button>
                         <button type="button" class="btn btn-success">Collabora</button>
                         <button type="button" class="btn btn-success">Informativa sulla privacy</button>
                      </div>
                   </div>
-                  <div class="col-md-4" style="text-align: center;">
+                  <div class="col-md-4">
                     <h3>Pinacoteca Nazionale di Bologna</h3>
                     <br>
-                    <p style="text-align:center;">La maggior parte delle opere dei Carracci viene custodita presso la Pinacoteca Nazionale di Bologna, nata nel 1808 come quadreria dell’Accademia di Belle Arti.</p>
-                    <p><a href="https://www.pinacotecabologna.beniculturali.it/it/" style="color:white">Sito ufficiale Pinacoteca Nazionale di Bologna</a></p>
+                    <p>La maggior parte delle opere dei Carracci viene custodita presso la Pinacoteca Nazionale di Bologna, nata nel 1808 come quadreria dell’Accademia di Belle Arti.</p>
+                    <p><a href="https://www.pinacotecabologna.beniculturali.it/it/" class="link">Sito ufficiale Pinacoteca Nazionale di Bologna</a></p>
                     <p><i>Via delle Belle Arti, 56, 40126 Bologna</i></p>
-                    <p><i class="fa fa-phone"></i><a href="tel.0514209442" style="color:white">051 420 9442</a></p>
+                    <p><i class="fa fa-phone"></i><a href="tel.0514209442" class="link">051 420 9442</a></p>
                   </div>
-                  <div class="col-md-4" style="text-align: center;">
+                  <div class="col-md-4">
                     <h3>Dove si trova la Pinacoteca</h3>
                     <br>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2845.849017307449!2d11.35130701481048!3d44.497760405426455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477fd4bb1de70405%3A0xe67a2e08c4cf2dcf!2sPinacoteca%20Nazionale%20Bologna!5e0!3m2!1sit!2sit!4v1653669978934!5m2!1sit!2sit" width="270px" height="250px"allowfullscreen="yes" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </div>
                   <div class="container-fluid">
-                  <div class="col-lg-6 text-lg-start"><i>Copyright &copy; Margarita Belkina, Beatrice Marchesini, Miriana Matarrelli 2022</i></div>
+                  <p class="mb-0 pb-1 pt-1 text-center"><i>Copyright &copy; Margarita Belkina, Beatrice Marchesini, Miriana Matarrelli 2022</i></p>
                   </div>
               </div>
             </div>
-          </footer>           
+          </footer>  
+          <script>
+          // Initiate zoom effect:
+          imageZoom("myimage", "myresult");
+          </script>         
       </body>
 </html> 
