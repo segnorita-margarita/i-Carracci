@@ -12,7 +12,7 @@
      <dc:subject>pittura bolognese</dc:subject>
      <dc:subject>pittori italiani del '500</dc:subject>
      <dc:subject>realismo italiano</dc:subject>
-     <dc:description xml:lang="it">ll Mangiafagioli è un dipinto di Annibale Carracci realizzato tra il 1584 e il 1585. Esso misura 57x68 cm ed è custodito nella galleria di Palazzo Colonna, Roma.</dc:description>
+     <dc:description xml:lang="it">ll Mangiafagioli è un dipinto di <creator>Annibale Carracci</creator> realizzato tra <date>il 1584 e il 1585</date>. Esso misura <format>57x68 cm</format> ed è custodito nella <coverage>galleria di Palazzo Colonna, Roma</coverage>.</dc:description>
      <dc:relation>Madonna dei Bargellini</dc:relation>
      <dc:relation>Triplo ritratto</dc:relation>
   </opera>
