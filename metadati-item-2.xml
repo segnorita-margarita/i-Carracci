@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collezione xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="icarracci">
+<!-- xml:id fa parte della sintassi xml -->
+  <opera xml:id="lamadonnadeibargellini">
+     <dc:title>La Madonna dei Bargellini</dc:title>
+     <dc:creator>Ludovico Carracci</dc:creator>
+     <dc:date>1588</dc:date>
+     <dc:type>dipinto</dc:type>
+     <dc:format>282x188 cm</dc:format>
+     <dc:format>olio su tela</dc:format>
+     <dc:coverage>Pinacoteca Nazionale di Bologna</dc:coverage>
+     <dc:subject>pittura bolognese</dc:subject>
+     <dc:subject>pittori italiani del '500</dc:subject>
+     <dc:subject>realismo italiano</dc:subject>
+     <dc:description xml:lang="it"><img source="https://upload.wikimedia.org/wikipedia/commons/6/68/Carracci_Ludovico_Madonna_Bargellini.jpg"/>La Madonna dei Bargellini è la prima opera firmata e datata di <creator>Ludovico Carracci</creator>, che egli eseguì per conto della famiglia bolognese dei Bargellini. Il <type>dipinto</type>, che originariamente si trovava sull’altare della cappella Boncompagni nella chiesa dei santi Filippo e Giacomo, in Via delle Lame, ritrae la Madonna, Gesù e i santi Francesco Domenico e Maddalena.</dc:description>
+     <dc:relation>Triplo ritratto</dc:relation>
+     <dc:relation>Il Mangiafagioli</dc:relation>
+  </opera>
+</collezione>
