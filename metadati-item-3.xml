@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collezione xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="icarracci">
+<!-- xml:id fa parte della sintassi xml -->
+  <opera xml:id="triplo ritratto">
+     <dc:title>Triplo ritratto</dc:title>
+     <dc:description>
+       <img source="https://upload.wikimedia.org/wikipedia/commons/a/aa/Agostino_Carracci_-_Hairy_Harry%2C_Mad_Peter_and_Tiny_Amon.jpg"/>
+       <title>Il Triplo ritratto</title> (Arrigo peloso, Pietro matto e Amon nano) è un dipinto <format>a olio su tela</format> di <creator>Agostino Carracci</creator> eseguito tra <date>il 1598 e il 1600</date> a Roma, è conservato nel <coverage>Museo nazionale di Capodimonte di Napoli.</coverage>
+     </dc:description>
+     <dc:creator>Agostino Carracci</dc:creator>
+     <dc:date>1598-1600</dc:date>
+     <dc:type>ritratto</dc:type>
+     <dc:format>101×133 cm</dc:format>
+     <dc:format>olio su tela</dc:format>
+     <dc:coverage>Museo nazionale di Capodimonte, Napoli</dc:coverage>
+     <dc:subject>pittura bolognese</dc:subject>
+     <dc:subject>pittori italiani del '500</dc:subject>
+     <dc:subject>realismo italiano</dc:subject>
+     <dc:relation>Annibale Carracci, ll Mangiafagioli</dc:relation>
+  </opera>
+</collezione>
