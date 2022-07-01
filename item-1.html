@@ -4,8 +4,11 @@
     <title>Il mangiafagioli</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- bootstrap css -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"/>
+      <!-- css -->
       <link rel="stylesheet" type="text/css" href="style.css"/>
+      <!-- metadati DC -->
       <meta name="DC.Title" content="I Carracci">
       <meta name="DC.Creator" content="Margarita Belkina, Beatrice Marchesini, Miriana Matarrelli">
       <meta name="DC.Subject" content="collezione">
@@ -20,68 +23,6 @@
       <meta name="DC.Relation" content="https://www.pinacotecabologna.beniculturali.it/it/">
       <link rel="DC.Coverage">
       <meta name="DC.Rights" content="Inserisci il tipo di licenza con cui intendi proteggere il tuo sito web (per esempio, fai riferimento a una delle licenze Creative Commons: https://creativecommons.org/share-your-work/)">
-      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-      <script>
-      function imageZoom(imgID, resultID) {
-      var img, lens, result, cx, cy;
-      img = document.getElementById(imgID);
-      result = document.getElementById(resultID);
-      /*create lens:*/
-      lens = document.createElement("DIV");
-      lens.setAttribute("class", "img-zoom-lens");
-      /*insert lens:*/
-      img.parentElement.insertBefore(lens, img);
-      /*calculate the ratio between result DIV and lens:*/
-      cx = result.offsetWidth / lens.offsetWidth;
-      cy = result.offsetHeight / lens.offsetHeight;
-      /*set background properties for the result DIV:*/
-      result.style.backgroundImage = "url('" + img.src + "')";
-      result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
-      /*execute a function when someone moves the cursor over the image, or the lens:*/
-      lens.addEventListener("mousemove", moveLens);
-      img.addEventListener("mousemove", moveLens);
-      /*and also for touch screens:*/
-      lens.addEventListener("touchmove", moveLens);
-      img.addEventListener("touchmove", moveLens);
-      function moveLens(e) {
-      var pos, x, y;
-      /*prevent any other actions that may occur when moving over the image:*/
-      e.preventDefault();
-      /*get the cursor's x and y positions:*/
-     pos = getCursorPos(e);
-     /*calculate the position of the lens:*/
-     x = pos.x - (lens.offsetWidth / 2);
-     y = pos.y - (lens.offsetHeight / 2);
-     /*prevent the lens from being positioned outside the image:*/
-     if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
-     if (x < 0) {x = 0;}
-     if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
-     if (y < 0) {y = 0;}
-     /*set the position of the lens:*/
-     lens.style.left = x + "px";
-     lens.style.top = y + "px";
-     /*display what the lens "sees":*/
-     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-     }
-     function getCursorPos(e) {
-     var a, x = 0, y = 0;
-     e = e || window.event;
-     /*get the x and y positions of the image:*/
-     a = img.getBoundingClientRect();
-     /*calculate the cursor's x and y coordinates, relative to the image:*/
-     x = e.pageX - a.left;
-     y = e.pageY - a.top;
-     /*consider any page scrolling:*/
-     x = x - window.pageXOffset;
-     y = y - window.pageYOffset;
-     return {x : x, y : y};
-     }
-     }
-     </script>
   </head>
 
   <body>
@@ -117,7 +58,7 @@
                     </div>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
+                <form id="area_cerca" class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Cerca sul sito">
                     <button class="btn btn-success" type="submit">Cerca</button>
                 </form>
@@ -256,8 +197,71 @@
             </div>
           </footer>  
           <script>
+          function imageZoom(imgID, resultID) {
+          var img, lens, result, cx, cy;
+          img = document.getElementById(imgID);
+          result = document.getElementById(resultID);
+          /*create lens:*/
+          lens = document.createElement("DIV");
+          lens.setAttribute("class", "img-zoom-lens");
+          /*insert lens:*/
+          img.parentElement.insertBefore(lens, img);
+          /*calculate the ratio between result DIV and lens:*/
+          cx = result.offsetWidth / lens.offsetWidth;
+          cy = result.offsetHeight / lens.offsetHeight;
+          /*set background properties for the result DIV:*/
+          result.style.backgroundImage = "url('" + img.src + "')";
+          result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+          /*execute a function when someone moves the cursor over the image, or the lens:*/
+          lens.addEventListener("mousemove", moveLens);
+          img.addEventListener("mousemove", moveLens);
+          /*and also for touch screens:*/
+          lens.addEventListener("touchmove", moveLens);
+          img.addEventListener("touchmove", moveLens);
+          function moveLens(e) {
+          var pos, x, y;
+          /*prevent any other actions that may occur when moving over the image:*/
+          e.preventDefault();
+          /*get the cursor's x and y positions:*/
+          pos = getCursorPos(e);
+          /*calculate the position of the lens:*/
+          x = pos.x - (lens.offsetWidth / 2);
+          y = pos.y - (lens.offsetHeight / 2);
+          /*prevent the lens from being positioned outside the image:*/
+          if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+          if (x < 0) {x = 0;}
+          if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+          if (y < 0) {y = 0;}
+          /*set the position of the lens:*/
+          lens.style.left = x + "px";
+          lens.style.top = y + "px";
+          /*display what the lens "sees":*/
+          result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+          }
+          function getCursorPos(e) {
+          var a, x = 0, y = 0;
+          e = e || window.event;
+          /*get the x and y positions of the image:*/
+          a = img.getBoundingClientRect();
+          /*calculate the cursor's x and y coordinates, relative to the image:*/
+          x = e.pageX - a.left;
+          y = e.pageY - a.top;
+          /*consider any page scrolling:*/
+          x = x - window.pageXOffset;
+          y = y - window.pageYOffset;
+          return {x : x, y : y};
+          }
+          }
+          </script>
+          <script>
           // Initiate zoom effect:
           imageZoom("myimage", "myresult");
-          </script>         
+          </script>   
+          <!-- bootstrap js -->
+          <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+          <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>      
       </body>
 </html> 

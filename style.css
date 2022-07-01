@@ -29,6 +29,22 @@ footer {
 .link:hover {color: #FFFFFF; text-decoration: underline;}
 
 
+#area_cerca {
+position: absolute;
+right: 10px;
+}
+
+.card .card-item {
+ min-width: 200px;
+ max-width: 300px;
+ border-warning;
+        }
+
+.card-img-top {
+ width: 100%;
+}
+
+
 .img-zoom-container {
   position: relative;
 }
