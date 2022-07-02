@@ -113,18 +113,3 @@ div.desc {
   color: white;
   transform: rotateY(180deg);
 }
-
-div.gallery {
-  margin: 5px;
-  border: 1px solid #FFA500;
-  float: left;
-}
-
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
