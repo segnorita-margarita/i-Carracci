@@ -22,28 +22,33 @@
       <meta name="DC.Type" content="Sito web">
       <meta name="DC.Format" content="HTML/CSS/JS">
       <link rel="DC.Identifier" href="https://segnorita-margarita.github.io/i-Carracci/">
-      <meta name="DC.Source" content="https://it.wikipedia.org/wiki/Pagina_principale, http://viaf.org/, https://www.geonames.org/">
+      <meta name="DC.Source" content="https://it.wikipedia.org/wiki/Pagina_principale">
       <meta name="DC.Language" content="it">
       <meta name="DC.Relation" content="https://www.pinacotecabologna.beniculturali.it/it/">
-      <link rel="DC.Coverage">
+      <link rel="DC.Coverage" href="https://www.getty.edu/vow/TGNFullDisplay?find=bologna&place=&nation=&prev_page=1&english=Y&subjectid=7003127">
       <meta name="DC.Rights" content="https://creativecommons.org/share-your-work/">
     </head>
 
     <body>
         <header>
             <!--NAVBAR-->
-            <nav class="navbar fixed-top navbar-expand-sm bg-warning justify-content-right navbar-light">
+            <nav class="navbar fixed-top navbar-expand-md bg-warning justify-content-left navbar-light">
             <!-- Brand -->
-               <a class="navbar-brand" href="index.html">I CARRACCI</a>
+              <a class="navbar-brand" href="index.html">I CARRACCI</a>
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
             <!-- Links -->
             <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
+               <ul class="navbar-nav">
+                   <li class="nav-item">
                       <a class="nav-link" href="index.html">HOME</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="storia.html">STORIA</a>
                     </li>
+
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">OPERE</a>
@@ -73,16 +78,26 @@
 
         <section>
         <br>
+        <br>
+        <!-- Breadcrumbs -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link text-success">Home</a></li>
+            <li class="breadcrumb-item"><a href="Carracci-opere.html" class="breadcrumb-link text-success">Lista opere</a></li>
+            <li class="breadcrumb-item text-success" aria-current="page">La Madonna dei Bargellini</li>
+          </ol>
+        </nav>
         <div class="container-fluid">
          <div class="container mt-5 mb-3">
            <div class="row">
                <div class="col-12 m-3 text-center">
-                  <h3><b>La Madonna dei Bargellini</b></h3>
+                  <h1><b>La Madonna dei Bargellini</b></h1>
                </div>
            </div> 
+
+           <!-- Breadcrumbs -->
            <div class="row">
               <div class="col-2 mt-1 mb-1">
-                  <button type="button" class="btn btn-outline-warning mt-3 mb-4" disabled> <a href="index.html" class="text-warning">Home</a> <a href="Carracci-opere.html" class="text-warning"> > Lista opere</a> > La Madonna dei Bargellini</button>
                   <button type="button" class="btn btn-outline-warning mt-3"> <i class="bi bi-shield-fill-check"></i> Licenza</button><br>
                   <button type="button" class="btn btn-outline-warning mt-3"> <i class="fa fa-download"></i> Immagine</button><br>
                   <button type="button" class="btn btn-outline-warning mt-3"> <i class="bi bi-share"></i> Condividi</button><br>
@@ -93,7 +108,7 @@
                   <img id="myimage" src="img/Madonna dei Bargellini.jpg" alt="Responsive image" style="width:500px;height:900p"><br>
                 </div>
                   <br><br>
-                  <p align="justify"><i>Introduzione:</i> La Madonna dei Bargellini è la prima opera firmata e datata di Ludovico Carracci, che egli eseguì per conto della famiglia bolognese dei Bargellini. La pala, che originariamente si trovava sull’altare della cappella Boncompagni nella chiesa dei santi Filippo e Giacomo, in Via delle Lame, ritrae la Madonna, Gesù e i santi Francesco Domenico e Maddalena.</p>
+                  <p align="justify"><i>Introduzione:</i> La Madonna dei Bargellini è la prima opera firmata e datata di Ludovico Carracci, che egli eseguì per conto della famiglia bolognese dei Bargellini. La pala, che originariamente si trovava sull’altare della cappella Boncompagni nella chiesa dei santi Filippo e Giacomo, in Via delle Lame, ritrae la Madonna, Gesù e i santi Francesco, Domenico e Maddalena.</p>
                   <br><br>
                   <table class="table">
                     <thead>

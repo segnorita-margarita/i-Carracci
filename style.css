@@ -19,6 +19,13 @@ h1, h2, h3, h4 {
 }
 
 
+.breadcrumb { 
+  background: white; 
+  font-size: 18px; 
+  color: white; 
+}
+
+
 footer {
   font-family: "Verdana", sans-serif;
   color: white;
@@ -37,8 +44,7 @@ right: 10px;
 .card .card-item {
  min-width: 200px;
  max-width: 300px;
- border-warning;
-        }
+}
 
 .card-img-top {
  width: 100%;
@@ -64,10 +70,7 @@ right: 10px;
   height: 300px;
 }
 
-div.desc {
-  padding: 15px;
-  text-align: center;
-}
+
 
 .flip-card {
   background-color: transparent;
